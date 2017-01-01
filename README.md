@@ -27,3 +27,5 @@
 - AVFoundation: av audio recorder을 포함한다.
 - Delegate: 개념정리할것
 AVAudioRecorderDelegate : protocol
+- ![Stack Views](https://cloud.githubusercontent.com/assets/7614353/21580534/40a32156-d041-11e6-9802-5b5d51eb6965.png)
+  - storyboard에서 stack의 distribution을 Fill Equally로 해야 버튼 정렬됨
