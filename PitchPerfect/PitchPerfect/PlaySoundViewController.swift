@@ -7,10 +7,29 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PlaySoundViewController: UIViewController {
     var recordedAudioURL: URL!
-
+    @IBOutlet weak var fastButton: UIButton!
+    @IBOutlet weak var slowButton: UIButton!
+    
+    @IBOutlet weak var highPitchButton: UIButton!
+    @IBOutlet weak var lowPitchButton: UIButton!
+    
+    @IBOutlet weak var echoButton: UIButton!
+    @IBOutlet weak var reverbButton: UIButton!
+    
+    var recordedAudioURL: URL!
+    
+    @IBAction func playSoundForButton (_ sender: UIButton) {
+        print("play sound for button")
+    }
+    
+    @IBAction func stopButtonPressed (_ sender: UIButton) {
+        print("stop button pressed")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

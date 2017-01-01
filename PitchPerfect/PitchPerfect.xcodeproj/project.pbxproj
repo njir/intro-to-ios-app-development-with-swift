@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		84B8D2251E18E7250012E6AE /* PlaySoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8D2241E18E7250012E6AE /* PlaySoundViewController.swift */; };
+		84B8D2271E1901BF0012E6AE /* playsoundsviewcontroller-audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8D2261E1901BF0012E6AE /* playsoundsviewcontroller-audio.swift */; };
 		84FEC3BF1E17815200EC1635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEC3BE1E17815200EC1635 /* AppDelegate.swift */; };
 		84FEC3C11E17815200EC1635 /* RecordSoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEC3C01E17815200EC1635 /* RecordSoundViewController.swift */; };
 		84FEC3C41E17815200EC1635 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FEC3C21E17815200EC1635 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		84B8D2241E18E7250012E6AE /* PlaySoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundViewController.swift; sourceTree = "<group>"; };
+		84B8D2261E1901BF0012E6AE /* playsoundsviewcontroller-audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "playsoundsviewcontroller-audio.swift"; sourceTree = "<group>"; };
 		84FEC3BB1E17815200EC1635 /* PitchPerfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchPerfect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FEC3BE1E17815200EC1635 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84FEC3C01E17815200EC1635 /* RecordSoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundViewController.swift; sourceTree = "<group>"; };
@@ -58,11 +60,12 @@
 			children = (
 				84FEC3BE1E17815200EC1635 /* AppDelegate.swift */,
 				84FEC3C01E17815200EC1635 /* RecordSoundViewController.swift */,
+				84B8D2241E18E7250012E6AE /* PlaySoundViewController.swift */,
+				84B8D2261E1901BF0012E6AE /* playsoundsviewcontroller-audio.swift */,
 				84FEC3C21E17815200EC1635 /* Main.storyboard */,
 				84FEC3C51E17815200EC1635 /* Assets.xcassets */,
 				84FEC3C71E17815200EC1635 /* LaunchScreen.storyboard */,
 				84FEC3CA1E17815200EC1635 /* Info.plist */,
-				84B8D2241E18E7250012E6AE /* PlaySoundViewController.swift */,
 			);
 			path = PitchPerfect;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 				84FEC3C11E17815200EC1635 /* RecordSoundViewController.swift in Sources */,
 				84B8D2251E18E7250012E6AE /* PlaySoundViewController.swift in Sources */,
 				84FEC3BF1E17815200EC1635 /* AppDelegate.swift in Sources */,
+				84B8D2271E1901BF0012E6AE /* playsoundsviewcontroller-audio.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
