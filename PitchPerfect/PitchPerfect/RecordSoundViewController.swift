@@ -68,5 +68,16 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
             print("recoding was not successful")
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "stopRecording" {
+            let playSoundsVC = segue.destination as! PlaySoundViewController
+            let recordedAudioURL = sender as! URL
+            playSoundsVC.recordedAudioURL = recordedAudioURL
+            //playSoundsVC 변수를 PlaySoundViewController 클래스의 인스턴스처럼
+            // playSoundsVC.recordedAudioURL 는 playsoundviewcontroller에 정의된 변수:
+            // PlaySoundViewController 에 audiourl을 알려줌
+        }
+    }
 }
 
