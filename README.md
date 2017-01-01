@@ -21,4 +21,9 @@ what I learned
 - ![UINavigationController](https://cloud.githubusercontent.com/assets/7614353/21576686/578daf64-cf7c-11e6-8d6f-516a9e2bc325.png)
 - The UINavigationController has a stack of UIViewControllers, and this stack needs to have at least 1 View Controller. It can have as many as your app needs.
 
-
+## 2017-01-01
+### Audio in iOS
+- ![Audio in iOS](https://cloud.githubusercontent.com/assets/7614353/21580454/413ac8aa-d03a-11e6-9399-b322197c2af0.png)
+- AVFoundation: av audio recorder을 포함한다.
+- Delegate: 개념정리할것
+AVAudioRecorderDelegate : protocol
