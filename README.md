@@ -1,10 +1,10 @@
 #Intro-to-ios-app-development-with-swift
 
 ## 2016-12-31
-what I learned
-1. how to use storyboard
-2. how to add button and enable or disable it
-3. how to add other ViewController
+- what I learned
+  - how to use storyboard
+  - how to add button and enable or disable it
+  - how to add other ViewController
 
 ### Difference between IBAction and IBOutlet
 - UI -> IBAction -> Code
