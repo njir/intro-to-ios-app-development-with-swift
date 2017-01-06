@@ -15,7 +15,7 @@
 	
 - 지금까지 사용해본 앱들 중에 Navigation Controller 기반의 앱 3가지와, Single View Controller 기반의 앱 3가지 정도를 찾아 화면을 캡처해 설명을 준비해주세요.
   - Single View Controller
-		- <img src="https://cloud.githubusercontent.com/assets/7614353/21704734/82709d1e-d3fe-11e6-808e-3ebcaece9715.PNG" width="200"> 계산기
+		- <img src="https://cloud.githubusercontent.com/assets/7614353/21704731/826e24d0-d3fe-11e6-8402-4be88e223b50.PNG" width="200"> 계산기
   - Navigation View Controller
 		- <img src="https://cloud.githubusercontent.com/assets/7614353/21704733/826ea8ba-d3fe-11e6-932e-59915bd3ddab.PNG" width="250"> Push Bullet
 		- 메모
@@ -23,7 +23,46 @@
 		- 대부분이 Navigation View
     
 - Swift로 아주 간단한 코드를 만들어봅시다. 복수의 로또 번호들을 당첨 번호와 비교해서 각각 몇 개와 일치하는지 알려주는 코드입니다. 코딩방법에 따라 여러가지 모양이 나올 수 있으니 꼭 정답을 찾으실 필요는 없습니다. Playground를 사용하시면 됩니다. 
-	- 회식... :(
+```swift
+//: Playground - noun: a place where people can play
+
+import UIKit
+
+// generate random number
+func randomInt(min: Int, max: Int) -> Int {
+     return min + Int(arc4random_uniform(UInt32(max - min + 1)))
+}
+
+// create random array
+var firstArray = [Int]()
+var secondArray = [Int]()
+for i in 0...5 {
+    firstArray.append(randomInt(min: 1, max: 45))
+    secondArray.append(randomInt(min: 1, max: 45))
+}
+
+// get match number
+func getMatch(inputNumber: [Int], winNumber: [Int]) -> Int {
+    var match = 0
+    for choice in inputNumber {
+        for lotto in winNumber {
+            if(choice == lotto) {
+              //  print("Macthed! \(choice)")
+                match += 1
+            }
+        }
+    }
+    return match
+}
+
+let matchNumber = getMatch(inputNumber: firstArray, winNumber: secondArray)
+
+print("//////////////////////")
+print("Input: \(firstArray)")
+print("WinNumber: \(secondArray)")
+print("You matched \(matchNumber) numbers")
+
+```
   
 - Auto Layout으로 두장의 사진을 미리 준비해서 그 중 한장을 보여주고, 버튼을 누르면 다른 한장으로 바꿔 보여주는 일을 반복하는 앱을 만들어주세요. 혹시 힘들면 Storyboard만 구성해주셔도 됩니다.
 	- 일단 Storyboard만 진행함(ImageTap 프로젝트)
