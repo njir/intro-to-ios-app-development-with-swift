@@ -2,49 +2,41 @@
 
 import UIKit
 
-var str = "Hello, playground"
-
-// variables
-var x: Int = 42
-let y = 100 //constant
-
-var myString = "Hello"
-
-// control flow
-if x < 50 {
-    print("X is less than 50")
-} else {
-    print("X is greater than or equal to 50")
+// generate random number
+func randomInt(min: Int, max: Int) -> Int {
+    return min + Int(arc4random_uniform(UInt32(max - min + 1)))
 }
 
+// create random array
+var firstArray = [Int]()
+var secondArray = [Int]()
+var matchedArray = [Int]()
 
-// classes
-class ViewController: UIViewController {
-    // instance var go here
-    // class function go here
+for i in 0...5 {
+    firstArray.append(randomInt(min: 1, max: 45))
+    secondArray.append(randomInt(min: 1, max: 45))
 }
 
-// functions
-func printHello() {
-    print("Hello")
+// get match number
+func getMatch(inputNumber: [Int], winNumber: [Int]) -> Int {
+    var match = 0
+    for choice in inputNumber {
+        for lotto in winNumber {
+            if(choice == lotto) {
+                matchedArray.append(choice)
+                //  print("Macthed! \(choice)")
+                match += 1
+            }
+        }
+    }
+    return match
 }
 
-printHello()
+let matchNumber = getMatch(inputNumber: firstArray, winNumber: secondArray)
 
-func printHelloMessage(helloString: String){
-    print(helloString)
-}
-
-printHelloMessage(helloString: "test")
-
-func join(s1: String, s2: String, joiner: String) -> String {
-    return s1 + joiner + s2
-}
-
-join(
-
-printHelloMessage(helloString: join(s1: "foo", s2: "bar", joiner: ", "))
-
-
-
-
+print("//////////////////////")
+print("Input: \(firstArray)")
+print("WinNumber: \(secondArray)")
+print("//////////////////////")
+print("Matched Number: \(matchedArray)")
+print("You matched \(matchNumber) numbers")

@@ -11,6 +11,10 @@ import AVFoundation
 
 class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
+    let dateFormatter = DateFormatter()
+    var timer = Timer()
+    let timeInterval : TimeInterval = 0.1 // 0.1 second
+    var timeCount : TimeInterval = 0.0
     
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var recordingButton: UIButton!
@@ -18,7 +22,6 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         stopRecordingButton.isEnabled = false
     }
     
@@ -28,7 +31,7 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBAction func recordAudio(_ sender: Any) {
         // to change view or UI
-        recordingLabel.text = "Recording in progress"
+        startTimer()
         stopRecordingButton.isEnabled = true
         recordingButton.isEnabled = false
         
@@ -48,7 +51,8 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     @IBAction func stopRecording(_ sender: Any) {
-        // to change view or UI
+        // to change view
+        stopTimer()
         recordingLabel.text = "Tap to Record"
         recordingButton.isEnabled = true
         stopRecordingButton.isEnabled = false
@@ -71,11 +75,36 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
         if segue.identifier == "stopRecording" {
             let playSoundsVC = segue.destination as! PlaySoundViewController
             let recordedAudioURL = sender as! URL
-            playSoundsVC.recordedAudioURL = recordedAudioURL
-            //playSoundsVC 변수를 PlaySoundViewController 클래스의 인스턴스처럼
-            // playSoundsVC.recordedAudioURL 는 playsoundviewcontroller에 정의된 변수:
-            // PlaySoundViewController 에 audiourl을 알려줌
+            playSoundsVC.recordedAudioURL = recordedAudioURL // set URL to PlaySoundViewController
         }
+    }
+    
+    // fire timer
+    func startTimer() {
+        if (!timer.isValid) { //prevent more than one timer on the thread
+            recordingLabel.text = timeString(time: timeCount)
+            timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(activeTimer(_:)), userInfo: nil, repeats: true)
+            timer.fire()
+        }
+    }
+    
+    // chang label on view
+    func activeTimer(_ timer: Timer) {
+        timeCount = timeCount + timeInterval
+        recordingLabel.text = timeString(time: timeCount)
+    }
+    
+    func stopTimer() {
+        timer.invalidate()
+        timeCount = 0.0
+    }
+    
+    // set time formatting
+    func timeString(time: TimeInterval) -> String {
+        let minutes = Int(time) / 60
+        let seconds = time - Double(minutes) * 60
+        let secondsFraction = seconds - Double(Int(seconds))
+        return String(format:"%02i:%02i.%01i", minutes, Int(seconds), Int(secondsFraction * 10.0))
     }
 }
 

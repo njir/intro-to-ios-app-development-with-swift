@@ -39,7 +39,11 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
             audioFile = try AVAudioFile(forReading: recordedAudioURL as URL)
         } catch {
             showAlert(Alerts.AudioFileError, message: String(describing: error))
-        }        
+        }
+        
+        let sampleRate = audioFile.fileFormat.sampleRate
+        let duration = Double(audioFile.length) / sampleRate
+        self.playbackSlider.maximumValue = Float(duration)
     }
     
     func playSound(rate: Float? = nil, pitch: Float? = nil, echo: Bool = false, reverb: Bool = false) {
@@ -86,15 +90,16 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
         // schedule to play and start the engine!
         audioPlayerNode.stop()
         audioPlayerNode.scheduleFile(audioFile, at: nil) {
-            
             var delayInSeconds: Double = 0
             
             if let lastRenderTime = self.audioPlayerNode.lastRenderTime, let playerTime = self.audioPlayerNode.playerTime(forNodeTime: lastRenderTime) {
                 
                 if let rate = rate {
                     delayInSeconds = Double(self.audioFile.length - playerTime.sampleTime) / Double(self.audioFile.processingFormat.sampleRate) / Double(rate)
+                    self.delayInSeconds = delayInSeconds
                 } else {
                     delayInSeconds = Double(self.audioFile.length - playerTime.sampleTime) / Double(self.audioFile.processingFormat.sampleRate)
+                    self.delayInSeconds = delayInSeconds
                 }
             }
             
@@ -115,6 +120,10 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
     }
     
     func stopAudio() {
+        // to reset variables for slider
+        self.sliderTimer.invalidate()
+        self.playbackSlider.value = 0
+        self.delayInSeconds = 0
         
         if let audioPlayerNode = audioPlayerNode {
             audioPlayerNode.stop()
@@ -125,7 +134,7 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
         }
         
         configureUI(.notPlaying)
-                        
+        
         if let audioEngine = audioEngine {
             audioEngine.stop()
             audioEngine.reset()
@@ -141,7 +150,7 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
     }
     
     // MARK: UI Functions
-
+    
     func configureUI(_ playState: PlayingState) {
         switch(playState) {
         case .playing:
@@ -161,7 +170,7 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
         echoButton.isEnabled = enabled
         reverbButton.isEnabled = enabled
     }
-
+    
     func showAlert(_ title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Alerts.DismissAlert, style: .default, handler: nil))
