@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  TappingImage
+//  test
 //
-//  Created by 진형탁 on 2017. 1. 7..
+//  Created by 진형탁 on 2017. 1. 14..
 //  Copyright © 2017년 Boostcamp. All rights reserved.
 //
 

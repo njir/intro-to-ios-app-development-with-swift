@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     var isFirst: Bool = true
     
+    @IBOutlet weak var ClickButton: UIButton!
     @IBAction func touchImage(_ sender: Any) {
         if(isFirst) {
             imageView.image = UIImage(named: "2")

@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>TappingImage.xcscheme</key>
+		<key>test.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8425DD241E20CDA10083D17D</key>
+		<key>8449A5BB1E29EF3300AA7FB8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

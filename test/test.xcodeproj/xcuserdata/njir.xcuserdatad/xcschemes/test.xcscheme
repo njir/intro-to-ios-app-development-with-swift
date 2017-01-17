@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8425DD241E20CDA10083D17D"
-               BuildableName = "TappingImage.app"
-               BlueprintName = "TappingImage"
-               ReferencedContainer = "container:TappingImage.xcodeproj">
+               BlueprintIdentifier = "8449A5BB1E29EF3300AA7FB8"
+               BuildableName = "test.app"
+               BlueprintName = "test"
+               ReferencedContainer = "container:test.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8425DD241E20CDA10083D17D"
-            BuildableName = "TappingImage.app"
-            BlueprintName = "TappingImage"
-            ReferencedContainer = "container:TappingImage.xcodeproj">
+            BlueprintIdentifier = "8449A5BB1E29EF3300AA7FB8"
+            BuildableName = "test.app"
+            BlueprintName = "test"
+            ReferencedContainer = "container:test.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8425DD241E20CDA10083D17D"
-            BuildableName = "TappingImage.app"
-            BlueprintName = "TappingImage"
-            ReferencedContainer = "container:TappingImage.xcodeproj">
+            BlueprintIdentifier = "8449A5BB1E29EF3300AA7FB8"
+            BuildableName = "test.app"
+            BlueprintName = "test"
+            ReferencedContainer = "container:test.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8425DD241E20CDA10083D17D"
-            BuildableName = "TappingImage.app"
-            BlueprintName = "TappingImage"
-            ReferencedContainer = "container:TappingImage.xcodeproj">
+            BlueprintIdentifier = "8449A5BB1E29EF3300AA7FB8"
+            BuildableName = "test.app"
+            BlueprintName = "test"
+            ReferencedContainer = "container:test.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

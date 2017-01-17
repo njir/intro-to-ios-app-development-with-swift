@@ -22,23 +22,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q6e-Ui-p4z">
-                                <rect key="frame" x="36" y="40" width="303" height="607"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Ieh-qv-Ky2" appends="YES" id="3KM-5x-tjM"/>
-                                </connections>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="LHH-bu-RMh">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q6e-Ui-p4z">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="617"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Ieh-qv-Ky2" appends="YES" id="3KM-5x-tjM"/>
+                                        </connections>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fa5-W3-mVe">
+                                        <rect key="frame" x="0.0" y="617" width="343" height="30"/>
+                                        <state key="normal" title="Click to switch image"/>
+                                        <connections>
+                                            <action selector="switchImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KFm-Fi-heR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fa5-W3-mVe" firstAttribute="centerX" secondItem="LHH-bu-RMh" secondAttribute="centerX" id="CWc-oP-hYf"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Q6e-Ui-p4z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="KfH-pF-b2s"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Q6e-Ui-p4z" secondAttribute="trailing" constant="20" id="Wh0-aA-wv3"/>
-                            <constraint firstItem="Q6e-Ui-p4z" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="cGA-xH-I2s"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Q6e-Ui-p4z" secondAttribute="bottom" constant="20" id="pyM-nu-pR0"/>
+                            <constraint firstItem="LHH-bu-RMh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3B5-KE-mtp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LHH-bu-RMh" secondAttribute="trailing" id="Hlw-bQ-XXS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LHH-bu-RMh" secondAttribute="bottom" id="Ysx-ao-uGl"/>
+                            <constraint firstItem="LHH-bu-RMh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ueI-W6-q9o"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ClickButton" destination="fa5-W3-mVe" id="l3e-ds-HAs"/>
                         <outlet property="imageView" destination="Q6e-Ui-p4z" id="Xeq-6b-zFy"/>
                     </connections>
                 </viewController>
@@ -49,6 +65,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="120.98950524737631"/>
         </scene>
     </scenes>
 </document>
