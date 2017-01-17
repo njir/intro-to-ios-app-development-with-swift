@@ -15,30 +15,33 @@
 - 모든 뷰는 frame property를 갖고 있다.
 - CGRectMake사용한다.-> (x좌표, y좌표, width, height)순이다.
 - addSubview를 해야한다 why? labelView를 뷰하이어라키 에 추가해야한다.
-    -  view를 땠다 붙였다 없앴다 하면서 화면을 바꿔줄 수 있다.
+ -  view를 땠다 붙였다 없앴다 하면서 화면을 바꿔줄 수 있다.
 - Views can have only one superview.
 
 ###### Quiz: Click Counter Quiz
 - 현재 코딩되어 있는 코드에 가장 알맞는 다이어그램을 골라라. 답은 2번
 - 아직 아무것도 안되어있다.
+
 ###### Creating the Count the Label Property
 - ViewController 클래스에 count와 label 변수를 선언하여 viewDidLoad 함수 내에 있는 label과 연결하고
 - incrementCount 함수를 정의하는 부분까지 진행
+
 ###### Diagramming the target action
 - UIButton에 Action을  추가해야한다. (target action -> IBACtion)
 - target Action의  3가지 component
-    - object to notify: target
-    - method to use: action
-    - event that will trigger: target/ action(control event) ex)touch
+ - object to notify: target
+ - method to use: action
+ - event that will trigger: target/ action(control event) ex)touch
+ 
 ###### Setting the Target Action
 - 위에서 만든 버튼에 target action을 추가하는 코드
 - 여기까지 진행하면 click버튼 누를때마다 label이 올라감
 
 ###### Experimenting with Target action
-Take a few minutes to do some experimenting on your own.
-* Add an additional label and have it increment with the first
-* Add a decrement button
-* Add an action that toggles the background color of the view with each clic
+- Take a few minutes to do some experimenting on your own.
+ * Add an additional label and have it increment with the first
+ * Add a decrement button
+ * Add an action that toggles the background color of the view with each clic
 
 ###### Actions as Callback Methods
 - 뷰오브젝트가 컨트롤 오브젝트와 인터액트한다.
@@ -48,7 +51,8 @@ Take a few minutes to do some experimenting on your own.
 - outline view, canvas view, text editor
 - 스토리보드는 코드상에서 정의되어있는 변수들을 인식하지 못하기 때문에 @IBOutlet 을 추가하여 인식시킨다.
 - 스토리보드와 코드상의 property를 connect하는 방법
-Transitioning to Storyboard Button
+
+###### Transitioning to Storyboard Button
 - 위의  label과 마찬가지로 button을 연결하는 방법
 - 함수에 IBACtion을 추가한다.
 
@@ -72,23 +76,30 @@ Transitioning to Storyboard Button
 ###### Quiz: Connection the color maker
 - 처음 다운받은 프로젝트에는 아웃렛, 액션들이 연결되어 있지 않다.
 - 그냥 연결하면 됨
+
 ###### Help with Connection the Color maker
 - 스토리보드와 코드 연결하는 방법
+
 ###### Quiz: Debugging Color Maker Error 1
 - Blue switch 가 연결되지 않았다.(valueChanged event
+
 ###### Quiz: Debugging Color Maker Error 2
 - Green Switch outlet이  Blue Swith와 연결되어 있었다.
+
 ###### Quiz: Debugging Color Maker Error 3
 - fatal error 발생-> color view 가 연결되어 있지 않아 에러 발생
 
 ###### View Presentations an Presenting view Controllers
 - presentation view 에 대한 설명
+
 ###### Get your Game Face on!
 - 어려워지니 휴식을 취해라
+
 ###### Quiz: Modal presentation vs Navigation
 - navigation presentation : 유저가 선택하여 갈수있는 (flat)
 - modal presentation: temporary view (Alert message, a self contained task that should be completed or abandoned)
-    - 일반적으로 sub view
+ - 일반적으로 sub view
+ 
 ###### How does a view get presentation
 - 메세지 앱 코드가 있다고 가정해봐라.
 - presentViewController에서 코드를 처리하면 self.presentViewController(controller, animated: true, completion: nil)
@@ -147,19 +158,20 @@ Transitioning to Storyboard Button
 - 처음 프로젝트에서 첫번째 뷰에서 Roll there Dice 가 연결이 안되어 있다.
 - 두번째 뷰에서 secondDice  가 연결이 안되어있다.
 - ?, ! optional을 설명해준다ㅣ
-    - 옵셔널이란 값이 있을수도, 없을수도 있는 변수
-    - ? 오퍼레이터를 추가함으로써 옵셔널 변수를 선언
-    - ! 오퍼레이터는 강제 언래핑할때 사용한다,
+ - 옵셔널이란 값이 있을수도, 없을수도 있는 변수
+ - ? 오퍼레이터를 추가함으로써 옵셔널 변수를 선언
+ - ! 오퍼레이터는 강제 언래핑할때 사용한다,
 
 ###### Presenting the Dice View Controller
 - nil때문에 런타임 에러가난다
 - 왜 fristdice가 nil 인가?
-    - let controller = DiceViewController() 만 선언하게 되면 DiceViewController에 선언되어 있는 UIView, UIButton 등이 아직 존재하지 않게 된다.
-    - 이 이슈를 없애기 위해, var controller: DiceViewController = self.storyboard?.instantiateViewControllerWithIdentifier(“DiceViewController”) as! DiceViewController 로 선언해야한다.
-    - instantiateViewControllerWithIdentifier의 아이덴티파이어는 단순히 스트링이다. (스토리보드에 정의되어있는)
-    - (“DiceViewController”) as! DiceViewController  -> instantiateViewControllerWithIdentifier리턴 값이 any object이기 때문에 as! DiceViewController 로 cast 하는 작업이 필요하다.
+ - let controller = DiceViewController() 만 선언하게 되면 DiceViewController에 선언되어 있는 UIView, UIButton 등이 아직 존재하지 않게 된다.
+ - 이 이슈를 없애기 위해, var controller: DiceViewController = self.storyboard?.instantiateViewControllerWithIdentifier(“DiceViewController”) as! DiceViewController 로 선언해야한다.
+ - instantiateViewControllerWithIdentifier의 아이덴티파이어는 단순히 스트링이다. (스토리보드에 정의되어있는)
+ - (“DiceViewController”) as! DiceViewController  -> instantiateViewControllerWithIdentifier리턴 값이 any object이기 때문에 as! DiceViewController 로 cast 하는 작업이 필요하다.
+
 ###### Presenting View Controllers:
-	- 위 코드를 집어넣어라
+- 위 코드를 집어넣어라
 
 ###### Quiz: How Do ViewControllers Comm
 - 첫번쨰 뷰에서 두번째 뷰로 데이터를 보내는 방법에 대한 설명
@@ -167,9 +179,10 @@ Transitioning to Storyboard Button
 
 ###### Demonstrate Code & Segue
 - 1. 스토리보드의 세그웨이와 결합하여 데이터를 보내는 방법
-    - 첫번쨰 뷰에서 두번째 뷰로 Modal 쎄그웨이를 만든다.
-		 // 1. 스토리보드에서 segue를 만들고, 그 segue의 identifier를 이용해 다음 뷰로 이동하는 방법
-    - performSegue(withIdentifier: "rollDice", sender: self) 를 추가한다.
+ - 첫번쨰 뷰에서 두번째 뷰로 Modal 쎄그웨이를 만든다.
+  - // 1. 스토리보드에서 segue를 만들고, 그 segue의 identifier를 이용해 다음 뷰로 이동하는 방법
+  - performSegue(withIdentifier: "rollDice", sender: self) 를 추가한다.
+  
 ###### Code & Segue Review
 - 위 코드 리뷰
 
@@ -178,23 +191,23 @@ Transitioning to Storyboard Button
 
 ###### Passing Data between ViewController
 - DiceViewController를 보여주는 3가지 방법이 있다.
-    - Only Code
-    - Code + Segue(Segue와 action code 같이)
-    - only segue
+ - Only Code
+ - Code + Segue(Segue와 action code 같이)
+ - only segue
+ 
 ###### prepareForSegue
 - UIViewController에 대한 설명
-    - storyboard와 interacting 하는 부분
-    - prepareForSegue
-    - performSegueWithIdentifier
+ - storyboard와 interacting 하는 부분
+ - prepareForSegue
+ - performSegueWithIdentifier
 - prepare 함수를 추가하고, performSeguewithIdentifier를 사용해 데이터를 보내는 방법에 대한 설명
+
 ###### Review of prepareForSegue
 - identifier 에 따라 데이터를 보내는 방법
 - 같은 뷰컨트롤러에 여러개의 segue 가 있을 수도 있으니까 위 방법을 사용해야한다.(if segue.identifier == "rollDice" )
 
 ###### Challenge App: Roshambo
 - 위에서 설명한 3가지를 모두 활용해 개발해본다.
-
-
 
 ###### Introducing Delegates
 - delegate modal, view, controller  간에 많이 쓰인다.
@@ -205,14 +218,16 @@ Transitioning to Storyboard Button
 - 두번째는 텍스트의 색깔이 변하도록
 - 문자열 길이 표시되도록
 - delegate는 다른 오브젝트를 대신해 method를 실행해주는 오브젝트이다.
-    - safari 에서 서치할때 자동완성되는 것도 delegate패턴이다
+ - safari 에서 서치할때 자동완성되는 것도 delegate패턴이다
+
 ###### The Course Github Repository
 - 깃허브 사용하자
+
 ###### Quiz: Compare and Contrast Custom TextField
 - 정답
-    - response to new characters being typed
-    - reaction to the return button
-    - behavior when editing begins
+ - response to new characters being typed
+ - reaction to the return button
+ - behavior when editing begins
 - textField1에는 emoji라는 놈을 delegate, field2는 colorzierDelgate, field3은 자기 자신
 
 
@@ -223,6 +238,7 @@ Transitioning to Storyboard Button
 ###### Real World Examples of Protocols
 - 말과 귀(스피커의 주파수?)
 - electric plug : standard electric 플러그 프로토콜로 개발된 것들은 같은 socket을 통해 전기를 받을수 있다. 세계의 다른 지역에서도 ??
+
 ###### Quiz: Text Field Code Review
 - 위  텍스트필드에서 delegate된 것들을 서로 바꾸면 그 행동들이 바뀌는가?
 - 코드에서 delegate 받는 것들을 서로 스왑하여 테스트한다.
@@ -231,16 +247,16 @@ Transitioning to Storyboard Button
 - 이제 앞으로 개발할 함수들을 살펴본다,
 - Editing lifecycle
 - methods
-  - textFieldShouldBeginEditing()
-  - textFieldDidBeginEditing()
-  - textFieldShouldEndEditing() 
-  - textFieldDidEndEditing()
-- The primary method for controlling text:
-  - textField(shouldChangeCharactersIn:replacementString:)
+ - textFieldShouldBeginEditing()
+ - textFieldDidBeginEditing()
+ - textFieldShouldEndEditing() 
+ - textFieldDidEndEditing()
+- The primary method for controlling text: 
+- textField(shouldChangeCharactersIn:replacementString:)
 - The clear button (the ‘x’ on the right side of some text fields):
-  - textFieldShouldClear()
+ - textFieldShouldClear()
 - The return key in the keyboard:
-  - textFieldShouldReturn()
+ - textFieldShouldReturn()
 
 
 ###### Diagramming the text field app
@@ -248,10 +264,10 @@ Transitioning to Storyboard Button
 - 텍스트필드2번은 이모지
 - 텍스트필드3번은 self -> viewController 에서도 delegate protocol 개발해야한다.
 - UILabel은 필드3번과 연결되어 텍스트 길이를 표시해준다,-> 여기서 delegate
-    - 1. 유저가 키를 입력하면
-    - 2. 텍스트필드는 텍스트가 변경된걸 감지하고
-    - 3. shouldChangeCharactersInRange를 invoke한다.
-    - 4. ViewController는 이 invoke를 받고, label을 업데이트한다.
+ - 1. 유저가 키를 입력하면
+ - 2. 텍스트필드는 텍스트가 변경된걸 감지하고
+ - 3. shouldChangeCharactersInRange를 invoke한다.
+ - 4. ViewController는 이 invoke를 받고, label을 업데이트한다.
 ```swift
 func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
@@ -275,22 +291,23 @@ func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange
 - 이모티콘 텍스트 필드는 글자가 있으면 편집할때 다 지워버린다. 리턴키가 키보드를 숨겨주지 않는다.
 - 칼라라이저는 글자가 있어도 시작할때 지우지 않는다. 엔터키누르면 숨긴다.
 - emoji
-    - textFieldBeginEditing
-    - textField
+ - textFieldBeginEditing
+ - textField
 - colorizer
-    - textField
-    - textFieldShouldReturn
-	- textField.resignFirstResponder() : 키보드를 숨긴다.
-
+ - textField
+ - textFieldShouldReturn
+  - textField.resignFirstResponder() : 키보드를 숨긴다.
 
 ###### Creating a random color delegate
 -  텍스트필드에 입력될때마다 칼라가 바뀌는 클래스 만들어봐
+
 ###### Random Color Delegate Code
 - 코드 설명
 
 ###### Preparing for the Challenge Apps
 - placeholder 추가
 - 키보드 타입 설정
+
 ###### Challenge Apps
 - 1. 텍스트필드의 길이를 5자로 제한, 항상 숫자만
 - 2. 달러표시, 소수 둘째자리, 항상 숫자만
@@ -305,25 +322,6 @@ func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange
 ###### Picking Images
 - ImageView를 추가하고 toolbar 추가 -> toolbar 의 아이템에 액션 추가
 - info.plist 에 Privacy - Photo Library Usage Description추가해야함
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
