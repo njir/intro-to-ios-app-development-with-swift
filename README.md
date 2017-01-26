@@ -2,6 +2,51 @@
 
 ## Memo
 ### 2017-01-26
+##### Tableview
+- tableview는 uiscrollview, 로부터 상속받았다.
+- 2가지 필수 프로토콜
+  - UITableViewDelegate
+  - UITableViewDataSource
+  - ViewController가 tableview에게 따로 Delegate하도록 구현해도 된다.
+- 중요 함수
+  - numberOfSections
+  - numberOfRows
+    - 따로 만든 이유: 일단 아이폰은 메모리가 굉장히 귀하다. 기본메모리만 사용한다. (가상메모리, 압축메모리가 없다.-압축은 확실하지 않음)  
+                  하나의 섹션 안에서 다양한 row가 존재할 수 있고, 여러 섹션들이 있을 수 있기 때문에 등등 메모리 관리가 중요하다   
+                  **메모리를 최소공간에서 효율적으로 운영하기 위해서**
+    - 현재 보이는 것만 delegate한테 물어봐서 새로 보이게 하고, 스크롤 올라갈 때마다 안보이는 영역들은 메모리에서 지우고, 이런 작업들을 해야해서
+    - 데이터를 전부 갖고 있는게 아니다.
+  - dequeueReusableCell
+    - cell들마다 따로 identifier를 설정하여 관리할 수 있다.
+    - identifier가 다르면 따로 메모리를 갖고 있기 때문에
+
+- headerView: Pull to refresh 할때 많이 사용
+
+> 프로토콜, Delegate는 런타임때 바꿀수 있도록(컴파일타임 뿐만 아니라)
+> 압축메모리: memory 상에서 오래된 프로세스들을 압축시키고 필요할때 풀자.
+
+- table뷰는 1차원적인 것들만 보여줄수 있기 떄문에 pinterest앱 처럼 만들려면 collectionview를 사용한다.
+- cell template이 많아지면 다른데다 만들어놓고 그걸 가져다 쓴다.
+- Cell -> Accessary -> Detail Disclosure..... 등등
+- multiselect, singleselect`
+- 항상 animation이 true인게 무조건 좋지 않다. -> 애니메이션 꼬일때가 있다.
+
+
+- ux 팁
+  - 무조건 스텝 3안에 원하는 정보에 접근해서 조작할 수 있어야한다.
+  - 명확히 버튼으로 뭔가를 하는게 좋다.
+
+
+- iphone SE, iPhone6+ 해상도 체크는 할것
+
+- UITableViewController
+  - 이 클래스 자체가 delegate, datasource, UIViewController를 상속받았기 때문에 override 해야하는 함수
+
+
+
+
+
+
 ##### 네비게이션 버튼
 ```swift
 import Foundation
@@ -54,7 +99,7 @@ class MYOAViewController: UIViewController {
  - object to notify: target
  - method to use: action
  - event that will trigger: target/ action(control event) ex)touch
- 
+
 ###### Setting the Target Action
 - 위에서 만든 버튼에 target action을 추가하는 코드
 - 여기까지 진행하면 click버튼 누를때마다 label이 올라감
@@ -121,7 +166,7 @@ class MYOAViewController: UIViewController {
 - navigation presentation : 유저가 선택하여 갈수있는 (flat)
 - modal presentation: temporary view (Alert message, a self contained task that should be completed or abandoned)
  - 일반적으로 sub view
- 
+
 ###### How does a view get presentation
 - 메세지 앱 코드가 있다고 가정해봐라.
 - presentViewController에서 코드를 처리하면 self.presentViewController(controller, animated: true, completion: nil)
@@ -204,7 +249,7 @@ class MYOAViewController: UIViewController {
  - 첫번쨰 뷰에서 두번째 뷰로 Modal 쎄그웨이를 만든다.
   - // 1. 스토리보드에서 segue를 만들고, 그 segue의 identifier를 이용해 다음 뷰로 이동하는 방법
   - performSegue(withIdentifier: "rollDice", sender: self) 를 추가한다.
-  
+
 ###### Code & Segue Review
 - 위 코드 리뷰
 
@@ -216,7 +261,7 @@ class MYOAViewController: UIViewController {
  - Only Code
  - Code + Segue(Segue와 action code 같이)
  - only segue
- 
+
 ###### prepareForSegue
 - UIViewController에 대한 설명
  - storyboard와 interacting 하는 부분
@@ -273,7 +318,7 @@ class MYOAViewController: UIViewController {
  - textFieldDidBeginEditing()
  - textFieldShouldEndEditing() 
  - textFieldDidEndEditing()
-- The primary method for controlling text: 
+- The primary method for controlling text:
 - textField(shouldChangeCharactersIn:replacementString:)
 - The clear button (the ‘x’ on the right side of some text fields):
  - textFieldShouldClear()
