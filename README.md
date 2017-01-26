@@ -1,6 +1,19 @@
 #Intro-to-ios-app-development-with-swift
 
 ## Memo
+### 2017-01-26
+##### 네비게이션 버튼
+```swift
+class MYOAViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start Over", style: .plain, target: self, action: #selector(startOver))
+    }
+}
+
+```
+
 ### 2017-01-18
 ######  MemeMe App
 - 이 과정에서 만드는 앱인데, 사진에 텍스트를 입력할 수 있고 그 사진을 공유한다.
