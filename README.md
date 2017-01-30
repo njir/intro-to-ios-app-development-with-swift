@@ -42,6 +42,20 @@
 - UITableViewController
   - 이 클래스 자체가 delegate, datasource, UIViewController를 상속받았기 때문에 override 해야하는 함수
 
+- Keypoint
+  - optional 개념
+  - mvc 구성
+  - IBOutlet, IBAction
+  - view life cycle
+  - delegate
+  - tableview mechanism
+  - view modal, navigation
+    - push, pop : navigationController
+    - modal: 해당 뷰컨트롤러에 겹치는 뷰
+      - 네비게이션 컨트롤러를 만들어서 그걸 자체를 modal로 올린다.
+  - tableview cell reusable
+  - 
+
 
 
 
